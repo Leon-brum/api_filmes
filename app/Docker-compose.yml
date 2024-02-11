@@ -1,0 +1,28 @@
+version: "3"
+services:
+  node:
+    build: .
+    container_name: api_filmes
+    stdin_open: true
+    command: sh
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 3005:3005
+    env_file: .env
+    environment:
+      MYSQLHOST: db
+  db:
+    image: mysql:8.0.32
+    container_name: api_filmes_DB
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQLPASSWORD}
+networks:
+  default:
+    name: api_filmes
