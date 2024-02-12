@@ -3,10 +3,10 @@ import { DataSource } from "typeorm"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
-    host: process.env.MYSQLHOST || '127.0.0.1',
+    host: process.env.MYSQLHOST || 'localhost',
     port: Number(process.env.MYSQLPORT) || 3306,
     username: process.env.MYSQLUSER || 'root',
-    password: process.env.MYSQLPASSWORD || 'l24157145',
+    password: process.env.MYSQLPASSWORD || 'Splitpuch@1',
     database: "api_filmes",
     synchronize: true,
     logging: false,
