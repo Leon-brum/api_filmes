@@ -1,2 +1,6 @@
 # api_filmes
-Uma api de filmes para, cadastro e consulta de filmes.
+This API was created with TypeScript and Docker/MySql.
+
+Functionalities:
+- Uploading for videos and movies
+- Streaming 
