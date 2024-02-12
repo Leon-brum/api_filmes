@@ -2,5 +2,5 @@
 This API was created with TypeScript and Docker/MySql.
 
 Functionalities:
-- Uploading for videos and movies
+- Uploading of videos and movies
 - Streaming 

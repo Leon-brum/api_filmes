@@ -2,6 +2,7 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { CreateUserTable1707661078194 } from "./migration/1707661078194-CreateUserTable"
 import { CreateMoviesTable1707750532755 } from "./migration/1707750532755-CreateMoviesTable"
+import { CreateActorsTable1707752593966 } from "./migration/1707752593966-CreateActorsTable"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -13,6 +14,6 @@ export const AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: [],
-    migrations: [CreateUserTable1707661078194, CreateMoviesTable1707750532755],
+    migrations: [CreateUserTable1707661078194, CreateMoviesTable1707750532755, CreateActorsTable1707752593966 ],
     subscribers: [],
 })

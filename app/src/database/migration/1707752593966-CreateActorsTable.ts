@@ -1,42 +1,39 @@
+import { query } from "express";
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateMoviesTable1707750532755 implements MigrationInterface {
+export class CreateActorsTable1707752593966 implements MigrationInterface {
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
+    public async up(queryRunner: QueryRunner): Promise<void> { 
         await queryRunner.createTable(
             new Table({
-                name: 'movies',
-                columns: [
+                name:'actors',
+                columns:[
                     {
                         name:'id',
                         type:'int',
-                        isPrimary: true,
+                        isPrimary:true,
                         generationStrategy:'increment'
-
+                    },
+                    {
+                        name:'moviesId',
+                        type: 'int',  
+                        // Criar ligação com o filmes relacionado.                      
                     },
                     {
                         name:'name',
+                        type:'varchar',
+                        length:'100',
+                        isNullable:false
+                    },
+                    { 
+                        name:'generous',
                         type: 'varchar',
                         length:'100',
-                        isNullable:false, 
-                    },
-                    {
-                        name:'director',
-                        type: 'varchar',
-                        length: '100',
                         isNullable: true
                     },
                     {
-                        name: 'studio',
-                        type:'varchar',
-                        length:'100',
-                        isNullable:true
-                    },
-                    {
-                        name:'generous',
-                        type:'varchar',
-                        length:'100',
-                        isNullable: false
+                        name:'age',
+                        type: 'date',
                     },
                     {
                         name: 'cratedAt',
@@ -46,14 +43,14 @@ export class CreateMoviesTable1707750532755 implements MigrationInterface {
                         name: 'updateAt',
                         type: 'date'
                     } 
+                    
                 ]
-
             })
         )
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('movies')
+        await queryRunner.dropTable('actors')
     }
 
 }
